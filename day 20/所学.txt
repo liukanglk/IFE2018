@@ -1,0 +1,2 @@
+1：键盘事件为document.keydown  回车事件为keyCode==13  ESC取消事件为keyCode==27
+2: 点击事件要选取事件目标 target

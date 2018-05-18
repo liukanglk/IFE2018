@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS-20</title>
+</head>
+<body>
+<input id="name" type="text">
+<button id="submit-btn">Submit</button>
+</body>
+<script>
+    /*
+       当点击按钮 submit-btn 时，在console中输出 name 中的内容
+       在输入过程中，如果按回车键，则同样执行上一条的需求
+       在输入过程中，如果按 ESC 键，则把输入框中的内容清空
+     */
+    var btn=document.querySelector('#submit-btn');
+    btn.addEventListener('click',function () {
+        var name=document.querySelector('#name');
+        console.log(name.value);
+    })
+
+ /*   btn.onclick=function(){
+        var name=document.querySelector('#name');
+        console.log(name.value);
+
+    }
+*/
+
+  document.onkeydown=function (ev) {
+      var ev=event ||window.event;
+      var name=document.querySelector('#name');
+      if(ev.keyCode==13){
+                btn.click();
+          }
+      if (ev.keyCode==27){
+          name.value='';
+      }
+      }
+
+
+
+
+</script>
+</html>
