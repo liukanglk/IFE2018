@@ -1,0 +1,2 @@
+1：设置了flex后 float clear  vertical-align会失效
+2:可以用padding-top来显示banner border增高效果

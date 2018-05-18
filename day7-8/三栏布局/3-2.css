@@ -1,0 +1,72 @@
+html *{
+    margin: 0;
+    padding: 0;
+}
+
+/*float方案*/
+/*
+.left{
+    width: 300px;
+    height: 150px;
+    background: red;
+    float: left;
+}
+.center{
+    width: 300px;
+    height: 150px;
+    background: blue;
+    float: left;
+
+}
+.right{
+    height: 150px;
+    background: yellow;
+}*/
+
+/*position方案*/
+
+/*
+.left{
+    width: 300px;
+    height: 150px;
+    background: red;
+    position: absolute;
+    left: 0;
+}
+.center{
+    width: 300px;
+    height: 150px;
+    background: blue;
+    position: absolute;
+    left: 300px;
+
+
+}
+.right{
+    height: 150px;
+    background: yellow;
+}*/
+
+/*flex方案*/
+.all{
+    display: flex;
+}
+.left{
+    width: 300px;
+    height: 150px;
+    background: red;
+
+}
+.center{
+    width: 300px;
+    height: 150px;
+    background: blue;
+
+
+
+}
+.right{
+    height: 150px;
+    background: yellow;
+    flex: 1;
+}

@@ -1,0 +1,55 @@
+html *{
+    margin: 0;
+    padding: 0;
+}
+
+
+/*float方案*/
+/*
+.left{
+    width: 400px;
+    height: 500px;
+    background: yellow;
+    float: left;
+
+}
+.right{
+    background: pink;
+    height: 500px;
+}*/
+/*position方案*/
+
+/*
+.left{
+    width: 400px;
+    height: 500px;
+    background: yellow;
+
+
+}
+.right{
+    background: pink;
+    height: 500px;
+   position: relative;
+    top: -500px;
+   margin-left: 400px;
+}*/
+
+
+/*flex方案*/
+.all{
+    display: flex;
+}
+.left{
+    width: 400px;
+    height: 500px;
+    background: yellow;
+
+
+}
+.right{
+    background: pink;
+    height: 500px;
+    flex: 1;
+
+}

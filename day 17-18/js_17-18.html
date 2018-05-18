@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+<div>
+四则运算
+    <input id="first-number" type="number" value="0" placeholder="第一个数字">
+    <input id="second-number"  type="number" value="0" placeholder="第二个数字">
+    <button id="add-btn">加</button>
+    <button id="minus-btn">减</button>
+    <button id="times-btn">乘</button>
+    <button id="divide-btn">除</button>
+    <p id="result">运算结果</p>
+
+</div>
+
+<div style="margin-top: 40px">
+<!--对2求与把10进制转换为2进制-->
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn" >转化为二进制</button>
+    <p id="result1">运算结果</p>
+</div>
+<script>
+    /*四则运算*/
+    var fn=document.getElementById('first-number');
+    var sn=document.getElementById('second-number');
+    var result=document.getElementById('result');
+
+    document.getElementById('add-btn').onclick=function () {
+
+        result.innerHTML = Number(fn.value) + Number(sn.value);
+
+
+    };
+    document.getElementById('minus-btn').onclick=function () {
+
+        result.innerHTML=Number(fn.value)-Number(sn.value);
+    };
+    document.getElementById('times-btn').onclick=function () {
+        result.innerHTML=Number(fn.value)*Number(sn.value);
+    };
+    document.getElementById('divide-btn').onclick=function () {
+        if (Number(sn.value)!==0) {
+            result.innerHTML = Number(fn.value) / Number(sn.value);
+        }else{
+            console.log('error!can\'t be zero');
+        }
+    };
+
+
+
+
+    /*对2求余*/
+    function dec2bin(decNumber) {
+        var btn=document.getElementById('trans-btn');
+         btn.onclick=function () {
+
+         var dec = decNumber.value;
+         var bin = '';
+         // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+         if (dec >= 0) {
+             if (dec % 2 != 0) {
+                 bin = '1' + bin;
+             } else {
+                 bin = '0' + bin;
+             }
+             dec = parseInt(dec / 2);
+         }
+         document.getElementById('result1').innerHTML = bin;
+     }
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+html *{
+    margin: 0;
+    padding: 0;
+}
+/*Float方案*/
+/*.left{
+    width: 30%;
+    background: yellow;
+    height: 500px;
+    float: left;
+}
+.right{
+    width: 70%;
+    background: pink;
+    height: 500px;
+    float: left;
+}*/
+/*Position方案*/
+/*.left{
+    width: 30%;
+    background: yellow;
+    height: 500px;
+
+}
+.right{
+    width: 70%;
+    background: pink;
+    height: 500px;
+  !*  position: relative;  relative方案
+    top: -500px;
+    left: 30%;*!
+    position: absolute;
+    top: 0;
+    left: 30%;
+}*/
+
+
+/*Flexbox方案*/
+.all{
+    display: flex;
+}
+.left{
+
+    flex: 1;
+    background: yellow;
+    height: 500px;
+
+}
+.right{
+    width: 70%;
+    background: pink;
+    height: 500px;
+
+}

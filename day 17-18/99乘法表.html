@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    tr{
+        margin: 10px;
+    }
+</style>
+<body>
+<table id="ta">
+
+
+</table>
+<script>
+    for(var i=1;i<10;i++){
+        var str='';
+        for(var j=1;j<=i;j++){
+           str+=i+'*'+j+'='+i*j+'  ';
+        }
+        console.log(str);
+    }
+
+    var  table1=document.getElementById('ta');
+
+
+    var  td=document.createElement('td');
+    for(var i=1;i<10;i++){
+        var  tr=document.createElement('tr');
+        var str='';
+
+        for(var j=1;j<=i;j++){
+            var td=document.createElement('td');
+
+            str+=i+'*'+j+'='+i*j+'  ';
+            var td_text=document.createTextNode(str);
+        }
+
+        td.appendChild(td_text);
+        tr.appendChild(td);
+        table1.appendChild(tr);
+
+    }
+
+
+
+</script>
+</body>
+</html>
