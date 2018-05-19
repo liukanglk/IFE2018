@@ -48,7 +48,7 @@
 
         for(var i=0;i<sp.length;i++) {
             if(sp[i].innerHTML=='HTML'){
-                console.log (sp[i]);
+                return sp[i];
             }
         }
         };
@@ -79,7 +79,7 @@
     {
         function getAllListItem() {
             // 返回页面中所有li标签
-            console.log(document.querySelectorAll('li'));
+            return document.querySelectorAll('li');
         }
 
         function findAllHtmlSpanInOneSection() {
@@ -88,7 +88,7 @@
             var sp = sec.querySelectorAll('span');
             for (var i = 0; i < sp.length; i++) {
                 if (sp[i].innerHTML === 'HTML') {
-                    console.log(sp[i]);
+                    returnsp[i];
                 }
             }
         };
@@ -99,7 +99,7 @@
             var sp = sec.querySelectorAll('span');
             for (var i = 0; i < sp.length; i++) {
                 if (sp[i].innerHTML === 'spanCont') {
-                    console.log(sp[i]);
+                    return sp[i];
                 }
             }
         }
