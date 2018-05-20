@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+        .smile{
+            width: 480px;
+            height: 480px;
+            overflow: hidden;
+
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="smile">
+    <img src="erik_ce204002.jpg" alt="" id="erik">
+</div>
+<script>
+
+    var er=document.getElementById('erik');
+    er.style.position='relative';
+    er.style.top='0px';
+    //笑容逐渐开始
+    function simleOn() {
+        var ypos=parseInt(er.style.top);
+        if (ypos==-7680){
+            simleOff();
+            return true;
+        }
+        if (ypos!==-7680) {
+            ypos -= 480;
+        }
+        er.style.top = ypos + 'px';
+        setTimeout(simleOn, 100);
+
+    }
+
+    //笑容逐渐没了
+    function simleOff() {
+        var ypos=parseInt(er.style.top);
+        if (ypos===0){
+            simleOn();
+            return true;
+        }
+        if (ypos!==0){
+            ypos+=480;
+        }
+        er.style.top=ypos+'px';
+        setTimeout(simleOff,100);
+    }
+
+
+    window.onload=simleOn;
+</script>
+</body>
+</html>
