@@ -17,12 +17,6 @@
 
 </div>
 
-<div style="margin-top: 40px">
-<!--对2求与把10进制转换为2进制-->
-    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
-    <button id="trans-btn" >转化为二进制</button>
-    <p id="result1">运算结果</p>
-</div>
 <script>
     /*四则运算*/
     var fn=document.getElementById('first-number');
@@ -65,25 +59,6 @@
                 alert('not a number');
             }
         }
-
- /*   }else{
-        alert('not a number');
-    }*/
-
-    /*对2求余*/
-    function dec2bin(decNumber) {
-        // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
-
-    }
-
-    // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
-    // Some coding
-    var btn=document.getElementById('trans-btn');
-    var i_text=document.getElementById('dec-number');
-    var result1=document.getElementById('result1');
-    btn.onclick=dec2bin(i_text.value);
-
-
 </script>
 </body>
 </html>

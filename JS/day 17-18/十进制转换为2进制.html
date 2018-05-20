@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--对2求与把10进制转换为2进制-->
+<input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+<input type="text" id="bin-bit" type="number" placeholder="请输入2进制的位数">
+<button id="trans-btn" >转化为二进制</button>
+<p >运算结果: <span id="result"></span> </p>
+<p >二进制位数: <span id="result1"></span> </p>
+<script>
+    /*对2求余*/
+    function dec2bin(decNumber) {
+        // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
+        var result=document.querySelector('#result');
+        var binBit=document.querySelector('#bin-bit');
+        var binBit_text=Number(binBit.value);
+        if (decNumber>=0){
+            var arr=[];
+            for (var i=0;1;i++) {
+                //1 :判断条件一直为真
+                if (decNumber / 2 >= 1) {
+                    arr[i]=decNumber%2;
+                    decNumber=parseInt(decNumber/2);
+                }else{
+                    arr[i]=1;
+                    break;
+                }
+            }
+            //倒序
+            arr.reverse();
+            if (binBit_text>=arr.length) {
+                var q=binBit_text-arr.length;
+                for (var j=0;j<q;j++){
+                    arr.unshift(0);
+                }
+                var str=arr.join('');
+                result.innerHTML = str;
+            }else{
+                var str=arr.join('');
+                result.innerHTML = str;
+                console.log('error');
+            }
+
+
+
+
+        }
+    }
+
+
+    // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
+    // Some coding
+    var btn=document.getElementById('trans-btn');
+
+
+    btn.onclick=function () {
+        var i_text=document.getElementById('dec-number');
+        var result1=document.getElementById('result1');
+        dec2bin(Number(i_text.value));
+    }
+
+    // 新的需求是，转化显示后的二进制数为bin-bit中输入的数字宽度，例如
+    // dec-number为5，bin-bit为5，则转化后数字为00101
+    // 如果bin-bit小于转化后的二进制本身位数，则使用原本的位数，如dec-number为5，bin-bit为2，依然输出101，但同时在console中报个错
+    // Some coding
+
+</script>
+</body>
+</html>
