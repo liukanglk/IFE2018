@@ -1,0 +1,206 @@
+html *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*头部*/
+header{
+    height: 853.68px;
+    width: 100%;
+    background: url("./imgs/Background1.png") no-repeat,url("./imgs/pic-background.png") no-repeat;
+    background-size:cover ;
+}
+.text{
+    text-align: center;
+    padding-top: 186px;
+}
+.text #title{
+    font-family:'Montserrat Extralight';
+    font-size: 52.93px;
+    color: white;
+    font-weight: lighter;
+}
+.text #description{
+    font-family: 'Montserrat';
+    font-size: 17px;
+    color: white;
+}
+.signup{
+
+    margin-top: 88px ;
+    margin-left: 269px;
+    width: 828.13px;
+    height: 213.42px;
+    border: 1px solid lightgrey;
+    text-align: center;
+
+}
+.signup h3{
+    padding-top: 53px;
+
+    color: white;
+    font-weight: lighter;
+    font-size: 13.66px;
+}
+.signup p{
+    font-size: 10.24px;
+    padding-top: 14px;
+    padding-bottom: 37px;
+    color: lightgrey;
+}
+.signup input{
+    font-size: 11.95px;
+    width: 249.29px;
+    height: 42.68px;
+    margin-left: 26px;
+}
+.signup button{
+    width: 106.71px ;
+    height:42.68px;
+    font-size: 10.24px;
+}
+
+/*feature*/
+.feature{
+    width: 100%;
+    height: 606.11px;
+    background-color: white;
+}
+.f-title{
+    text-align: center;
+    margin-top: 76px;
+    margin-bottom: 70px;
+}
+.f-title h5{
+    font-size: 11.95px;
+    padding-bottom: 30px;
+}
+.f-title p{
+    font-size: 35.85px;
+
+}
+
+
+
+
+.f-feature-left{
+    margin-left: 249px;
+    float: left;
+}
+.f-feature-right{
+    float: right;
+    margin-right: 282px;
+}
+.f-top{
+    margin-bottom: 80px;
+}
+
+.f-top img{
+    float: left;
+}
+.f-bottom img{
+    float: left;
+}
+
+.f-description{
+    margin-left: 70px;
+}
+.feature-title{
+    font-size: 17.07px;
+    margin-bottom: 20px;
+
+}
+.feature-description{
+    font-size: 13.66px;
+    color: grey;
+
+}
+
+
+/*action*/
+.action{
+    width: 100%;
+    height: 682.94px;
+    background: url("./imgs/Background2.png") no-repeat,url("./imgs/pic-background2.png") no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.a-left{
+    margin-left: 268px;
+    padding-top: 156px;
+    float: left;
+}
+#a-title{
+    color: white;
+    font-size: 35.85px;
+    padding-bottom: 40px;
+}
+#a-descripton{
+    font-size: 15.37px;
+    color: lightgrey;
+    padding-bottom: 50px;
+}
+.a-left button{
+    font-size:10.24px ;
+    width: 204.9px;
+    height: 51.22px;
+    margin-right: 26px;
+}
+
+
+.a-right{
+   border-radius: 25px;
+    border: 1px solid grey;
+    width: 721px;
+    height: 512px;
+    position: absolute;
+    top: 89px;
+    left: 815px;
+}
+.a-right img{
+    width: 614px;
+    height: 462px;
+    padding-top: 40px;
+    padding-left: 60px;
+}
+
+
+
+
+
+
+/*footer*/
+footer{
+    width: 100%;
+    height: 358.54px;
+    background: black;
+}
+footer ul{
+    display: inline;
+    margin-left: 183px;
+    padding-top: 75px;
+    text-decoration: none;
+    float: left;
+}
+footer  p{
+    color: white;
+    font-size: 14px;
+    padding-bottom: 30px;
+}
+footer li{
+    list-style-type: none;
+    padding-bottom: 30px;
+    font-size: 13.66px;
+}
+footer li a{
+    color: grey;
+    text-decoration: none;
+}
+footer .enjoy{
+    float: left;
+    padding-top: 75px;
+    padding-left: 183px;
+}
+
+
