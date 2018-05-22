@@ -165,8 +165,83 @@ header{
     padding-left: 60px;
 }
 
+/*product*/
+.product{
+    width: 100%;
+    height: 495px;
+    background: white;
+    border-bottom: 1px solid lightgrey;
+}
+#p-title{
+    font-size: 42px;
+    text-align: center;
+    padding-top: 70px;
+}
+.p-description{
+    margin-left: 282px;
+    margin-top: 50px;
+
+}
+.p-description div img{
+    padding-bottom: 20px;
+}
+
+.p-description div{
+    width: 268.14px;
+    height:206.12px;
+    text-align: center;
+    float: left;
+    padding-right:68px ;
+}
+.p-description div p{
+    font-size: 13.66px;
+    color: grey;
+}
 
 
+/*bussiness*/
+.bussiness{
+    width: 100%;
+    height: 754px;
+    background: white;
+    border-bottom: 1px solid lightgrey;
+}
+.b-main{
+    width: 834px;
+    height: 669px;
+    margin: 0 auto;
+    margin-top: 93px;
+}
+
+
+.b1-description{
+    width: 300px;
+    height: 300px;
+    float: right;
+    padding-top: 60px;
+}
+.b-title{
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+.b-des{
+    font-size: 15px;
+    color: grey;
+}
+.b-main img{
+    padding-bottom: 40px;
+}
+.b2-description{
+    width: 300px;
+    height: 300px;
+    padding-top: 400px;
+}
+
+/*crew*/
+
+
+/*contact*/
 
 
 
