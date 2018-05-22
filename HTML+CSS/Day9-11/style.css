@@ -238,12 +238,120 @@ header{
     padding-top: 400px;
 }
 
-/*crew*/
+/*team*/
+.team{
+    width: 100%;
+    height: 926px;
+    border-bottom: 1px solid lightgrey;
+    background: white;
+}
+.t-description{
+    padding-top: 89px;
+    text-align: center;
+}
+.t-title{
+    font-size: 36px;
+    padding-bottom: 29px;
+}
+.t-des{
+    color: grey;
+    font-size: 16px;
+}
+.team-pic{
+    padding-top: 54px;
+    margin: 0 auto;
+    width: 832px;
+    height: 602px;
+    /*display: flex;*/
+}
+.team-pic img{
+    width: 406px;
+    padding: 10px;
+}
+.t-contact{
+    width: 400px;
+    height: 300px;
+    position: absolute;
+
+}
+.t-contact p{
+    position: relative;
+    text-align: center;
+    top: -200px;
+    padding-bottom: 10px;
+
+
+}
+.t-media{
+    position: relative;
+    display: flex;
+    top: -170px;
+    left: 100px;
+
+}
+.t-media img{
+    border-radius: 50%;
+    width: 10%;
+    border: 1px solid grey;
+    margin-left:20px ;
+}
+.t-media img:hover{
+    cursor: pointer;
+}
 
 
 /*contact*/
+.contact{
+    width: 100%;
+    height: 600px;
 
+}
+.c-left{
+    width: 402px;
+    height: 480px;
+    border: 1px solid lightgrey;
+    margin-top: 60px;
+    margin-left: 273px;
+    text-align: center;
+    float: left;
+}
+.c-left input{
+    width: 316px;
+    height: 43px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+#message{
+    height: 120px;
 
+    padding-bottom: 70px;
+}
+.c-left input::placeholder{
+    vertical-align: top;
+
+}
+.c-left button{
+    background: black;
+    width: 316px;
+    height: 43px;
+    color: white;
+}
+
+.c-right{
+    padding-top: 140px;
+    padding-left: 800px;
+}
+.c-contact img{
+    float: left;
+    padding-right: 10px;
+}
+.c-contact div{
+    padding-top: 30px;
+}
+.c-contact p{
+    font-size: 16px;
+    font-weight: bold;
+}
 
 /*footer*/
 footer{
@@ -276,6 +384,9 @@ footer .enjoy{
     float: left;
     padding-top: 75px;
     padding-left: 183px;
+}
+.e-media img{
+    padding-left: 10px;
 }
 
 
