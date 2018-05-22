@@ -146,6 +146,13 @@ header{
     width: 204.9px;
     height: 51.22px;
     margin-right: 26px;
+    background: none;
+    color: white;
+}
+.a-left button:hover{
+
+    background: white;
+    color: black;
 }
 
 
