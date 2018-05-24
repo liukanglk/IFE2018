@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>js_22_5</title>
+    <title>js_22_6</title>
 </head>
 <body>
 <input id="queue-input" type="text">
-<p id="queue-cont">队列内容：apple-&gt;pear</p>
+<p id="queue-cont">队列内容：apple&lt;-pear</p>
 <button id="in-btn">入队</button>
 <button id="out-btn">出队</button>
 <button id="font-btn">打印队头元素内容</button>
@@ -15,8 +15,8 @@
 <script>
     /*数组部分
     *   实现如阅读材料中，队列的相关入队、出队、获取队头、判空的操作
-        队头对应数组中最后一个元素
-        入队和出队操作后，需要在 id 为 queue-cont 的 p 标签中更新显示队列中的内容，队头在最右侧，中间用 -> 连接（练习使用数组的join方法）
+        队头对应数组中第一个元素
+        入队和出队操作后，需要在 id 为 queue-cont 的 p 标签中更新显示队列中的内容，队头在最左侧，中间用 <- 连接（练习使用数组的join方法）
     *
     * */
 
@@ -32,23 +32,27 @@
     /*入队*/
     btn1.addEventListener('click',function () {
         var in_text=input_text.value;
-        queue.unshift(in_text);
-        var a=queue.join('->');
-        p_text.innerText='队列内容为：'+a;
+        queue.push(in_text);
+        var a=queue.join('<-');
+        p_text.innerText='队列内容：'+a;
     })
 
     /*出队*/
     btn2.addEventListener('click',function () {
         var in_text=input_text.value;
-        queue.shift();
-        var a=queue.join('->');
-        p_text.innerText='队列内容为：'+a;
+        queue.pop();
+        var a=queue.join('<-');
+        p_text.innerText='队列内容：'+a;
     })
 
     /*打印队头内容*/
     btn3.addEventListener('click',function () {
        var font=document.createElement('p');
-       var font_text=document.createTextNode('队头内容为：'+queue[queue.length-1]);
+       if (queue.length>0) {
+           var font_text = document.createTextNode('队头内容为：' + queue[0]);
+       }else{
+           var font_text = document.createTextNode('没有队头');
+       }
        font.appendChild(font_text);
        document.body.appendChild(font);
     })
