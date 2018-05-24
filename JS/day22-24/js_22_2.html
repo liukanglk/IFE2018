@@ -154,12 +154,10 @@
         var str_2=str2.value;
 
         if (radio1.checked===true){
-            var str_1=str1.value;
-            var str_2=str2.value;
-            res.innerHTML='A的输入框行数：'+str1.rows;
+            res.innerHTML='A的输入框行数：'+str_1.split('\n').length;
            }
         if (radio2.checked===true ){
-
+            res.innerHTML='B的输入框行数：'+str_2.split('\n').length;
         }
     });
 
