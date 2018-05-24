@@ -152,22 +152,19 @@
     btn7.addEventListener('click',function () {
         var str_1=str1.value;
         var str_2=str2.value;
-        var len=0;
-        if (radio1.checked===true){
-           str1.keypress=function(ev){
-               if (ev.keyCode===13){
-                   len++;
-                   console.log('内部'+len);
-               }
 
-            return len;
+        if (radio1.checked===true){
+            var str_1=str1.value;
+            var str_2=str2.value;
+            res.innerHTML='A的输入框行数：'+str1.rows;
            }
-            res.innerHTML='A的输入框行数：'+len;
-        }
         if (radio2.checked===true ){
-            res.innerHTML='A的输入框行数：'+str_1.cols
+
         }
-    })
+    });
+
+
+
     // <button>使用substr获取选中输入框内容的子字符串，参数为num-a及num-b</button>
     btn8.addEventListener('click',function () {
                 var str_1=str1.value;
