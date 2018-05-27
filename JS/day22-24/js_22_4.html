@@ -61,27 +61,64 @@
 
     // 假设id和name均不会重复，根据输入name找到对应的id
     function findIdByName(name) {
-
+        var find = (tree)=>{
+            if(!tree) return;
+            if(tree.name===name) return tree.id;
+            if(find(tree.left)) return find(tree.left);
+            if(find(tree.right)) return find(tree.right);
+        };
+        return find(tree);
     }
+    console.log(findIdByName('Lee'));
 
     // 假设id和name均不会重复，根据输入id找到对应的name
     function findNameById(id) {
-
+        var find=(tree)=>{
+            if(!tree) return;
+            if(tree.id===id) return tree.name;
+            if(find(tree.left)) return find(tree.left);
+            if(find(tree.right)) return find(tree.right);
+        };
+        return find(tree);
     }
+    console.log(findNameById(2));
 
     // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
     function getListWithDLR() {
-
+        var visit=(tree)=>{
+            if (!tree) return;
+            //前序遍历 根左右
+            console.log(tree.name);
+            visit(tree.left);
+            visit(tree.right);
+        }
+        return visit(tree);
     }
+    getListWithDLR();
 
     // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
     function getListWithLDR() {
+        var visit=(tree)=>{
+            if(!tree) return;
+            //中序遍历 左根右
+            visit(tree.left);
+            console.log(tree.name);
+            visit(tree.right);
+        }
+        return visit(tree);
 
     }
 
     // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
     function getListWithLRD() {
-
+        var visit=(tree)=>{
+            if (!tree) return;
+            //前序遍历 左右根
+            visit(tree.left);
+            visit(tree.right);
+            console.log(tree.name);
+        }
+        return visit(tree);
     }
 
 </script>
