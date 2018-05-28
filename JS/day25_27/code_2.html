@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>code_2</title>
+</head>
+<body>
+<div class="timer1">
+<p class="time"></p>
+<p class="othertime"></p>
+</div>
+<script>
+    /*
+    具体需求如下：
+    在页面中显示当前日期及时间，按秒更新
+    格式为 YYYY 年 MM 月 DD 日 星期 D HH:mm:ss
+    注意位数的补齐，比如：
+    -- 假设时间为2008年10月10日星期一的12点12分12秒，显示2008年10月10日星期一 12:12:12
+    -- 假设时间为2008年1月1日星期一的3点2分2秒，显示2008年01月01日星期一 03:02:02
+    编码过程中，我们希望你注意对函数的封装，尽量让一个函数就做一个事情，而不要把所有的功能、代码揉在一起：
+
+    封装一个函数，来根据某个日期返回这一天是星期几
+    封装一个函数，把月、日、小时等出现个位数的情况前面补充0，补充为两位，比如1变为01
+    封装一个函数，把最后的日期时间，按照要求的格式进行包装
+    可能不止上面这些，尽可能地进行功能的解耦和拆解
+    */
+    var time=document.querySelector('.time');
+    var othertime=document.querySelector('.othertime')
+    function timer(){
+        var date=new Date();
+        var date_text=format(date);
+        time.innerHTML=date_text;
+        setTimeout(timer,1000);
+    }
+    function otherTime() {
+        var date=new Date();
+        var data_text=format1(date);
+        othertime.innerHTML=data_text;
+        setTimeout(otherTime,1000);
+    }
+    //封装星期
+    function week(week){
+        var date=new Date();
+        var week=date.getDay();  //获取星期是getDay 且0-6
+        switch(week){
+            case(0):
+                return '星期日';
+                break;
+            case(1):
+                return '星期一';
+                break;
+            case(2):
+                return '星期二';
+                break;
+            case(3):
+                return '星期三';
+                break;
+            case(4):
+                return '星期四';
+                break;
+            case(5):
+                return '星期五';
+                break;
+            case(6):
+                return '星期六';
+                break;
+        }
+
+    }
+
+    function week1(week){
+        var date=new Date();
+        var week=date.getDay();  //获取星期是getDay 且0-6
+        switch(week){
+            case(0):
+                return 'Sunday';
+                break;
+            case(1):
+                return 'Monday';
+                break;
+            case(2):
+                return 'Tuesday';
+                break;
+            case(3):
+                return 'Wednesday';
+                break;
+            case(4):
+                return 'Thursday';
+                break;
+            case(5):
+                return 'Friday';
+                break;
+            case(6):
+                return 'Saturday';
+                break;
+        }
+
+    }
+    //将默认格式转换为所需要的格式
+    function format(date){
+        var date=new Date();
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;  //getMonth:获取月份 但是是0-11
+        var day=date.getDate(); //getDate 是获取1-31号的日期
+        var weekday=week();
+        var hour=date.getHours();
+        var minute=date.getMinutes();
+        var second=date.getSeconds();
+       month=supplement(month);
+        day=supplement(day);
+        hour=supplement(hour);
+        minute=supplement(minute);
+        second=supplement(second);
+        return '当前时间为：'+year+'年'+month+'月'+day+'日'+weekday+' '+hour+':'+minute+':'+second;
+    }
+
+    function format1(date){
+        var date=new Date();
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;  //getMonth:获取月份 但是是0-11
+        var day=date.getDate(); //getDate 是获取1-31号的日期
+        var weekday=week1();
+        var hour=date.getHours();
+        var minute=date.getMinutes();
+        var second=date.getSeconds();
+        month=supplement(month);
+        day=supplement(day);
+        var noon=noonselect(hour);
+        hour=supplement1(hour);
+        minute=supplement(minute);
+        second=supplement(second);
+        return '当前时间为：'+year+'-'+month+'-'+day+' '+weekday+' '+hour+':'+minute+':'+second+' '+noon;
+    }
+
+    //参数补齐
+    function supplement(date){
+
+            if (date < 10) {
+                date = '0' + date;
+            }
+
+       return date;
+    }
+    function supplement1(date){
+
+        if (date < 10) {
+            date = '0' + date;
+        }
+        if (date>12){
+            date=(date-12);
+        }
+
+        return date;
+    }
+    function noonselect(date){
+        if(date<12){
+            return 'AM'
+        }else{
+            return 'PM'
+        }
+    }
+
+    timer();
+    otherTime();
+</script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>code_3</title>
+</head>
+<body>
+<select id="year-select">
+    <option value="2000">2000</option>
+</select>
+
+<select id="month-select">
+    <option value="1">01</option>
+</select>
+
+<select id="day-select">
+    <option value="1">01</option>
+</select>
+
+<select id="hour-select">
+    <option value="0">00</option>
+</select>
+
+<select id="minite-select">
+    <option value="0">00</option>
+</select>
+
+<select id="second-select">
+    <option value="0">00</option>
+</select>
+
+<p id="result-wrapper">
+    现在距离
+    <span id="year">2000</span>年
+    <span id="month">1</span>月
+    <span id="day">1</span>日
+    <span id="week"> </span>
+    <span id="time-hour"></span>
+    <span id="time-minute"></span>
+    <span id="time-second"></span>
+    <span id="currentYear"></span>
+    <span id="daydifferent">  </span>
+<script>
+    var currentyear=document.querySelector('#currentYear');
+    var year=document.querySelector('#year');
+    var day=document.querySelector('#day');
+    var week=document.querySelector('#week');
+    var time=document.querySelector('#time');
+    var time_hour=document.querySelector('#time-hour');
+    var time_minute=document.querySelector('#time-minute');
+    var time_second=document.querySelector('#time-second');
+    var sel=document.querySelectorAll('select');
+    var dayDifferent=document.querySelector('#daydifferent');
+    //添加参数
+    function additems(select,data,limit){
+        for(let i=data;i<data+limit;i++) {
+            if(i<10) {
+                i='0'+i;
+                let sel = document.createElement('option');
+                let seltext = document.createTextNode(i);
+                sel.appendChild(seltext)
+                select.appendChild(sel);
+            }else{
+                let sel = document.createElement('option');
+                let seltext = document.createTextNode(i);
+                sel.appendChild(seltext);
+                select.appendChild(sel);
+            }
+        }
+    }
+
+    additems(sel[0],2001,30);  //2000-2030年
+    additems(sel[1],2,11); //1-12月
+    additems(sel[3],1,22);
+    additems(sel[4],1,59);
+    additems(sel[5],1,59);
+
+    sel[0].onchange=function () {
+        var index=sel[0].selectedIndex;
+        var text=sel[0].options[index].text;
+        year.innerHTML=text;
+        daysChange();
+    }
+
+    sel[1].onchange=function () {
+        var index=sel[1].selectedIndex;
+        var text=sel[1].options[index].text;
+        if (text==1 || text==3|| text==5|| text==7|| text==8|| text==10|| text==12){
+            additems(sel[2],2,30);
+            month.innerHTML=text;
+        }else if(text==4 || text==6 || text==9 || text==11){
+            additems(sel[2],2,29);
+            month.innerHTML=text;
+        }else if(text==2){
+            if (sel[0].options[sel[0].selectedIndex].text%4==0){
+                additems(sel[2],2,28);
+                month.innerHTML=text;
+            } else{
+                additems(sel[2],2,27);
+                month.innerHTML=text;
+            }
+        }
+        daysChange();
+    }
+
+    sel[2].onchange=function () {
+        var index=sel[2].selectedIndex;
+        var text=sel[2].options[index].text;
+        day.innerHTML=text;
+        daysChange();
+    }
+    sel[3].onchange=function () {
+        var index=sel[3].selectedIndex;
+        var text=sel[3].options[index].text;
+        time_hour.innerHTML=text+':';
+        daysChange();
+
+    }
+    sel[4].onchange=function () {
+        var index=sel[4].selectedIndex;
+        var text=sel[4].options[index].text;
+        time_minute.innerHTML=text+':';
+        daysChange();
+
+    }
+    sel[5].onchange=function () {
+        var index=sel[5].selectedIndex;
+        var text=sel[5].options[index].text;
+        time_second.innerHTML=text;
+     daysChange();
+    }
+
+
+/*计算天数*/
+    function daysChange() {
+        var indexY=sel[0].selectedIndex;
+        var indexM=sel[1].selectedIndex;
+        var indexD=sel[2].selectedIndex;
+        var indexH=sel[3].selectedIndex;
+        var indexMi=sel[4].selectedIndex;
+        var indexS=sel[5].selectedIndex;
+        var text_y=sel[0].options[indexY].text;
+        var text_M=sel[1].options[indexM].text;
+        var text_D=sel[2].options[indexD].text;
+        var text_H=sel[3].options[indexH].text;
+        var text_Mi=sel[4].options[indexMi].text;
+        var text_S=sel[5].options[indexS].text;
+
+        var oldTime=new Date(text_y,text_M-1,text_D,text_H,text_Mi,text_S).getTime();
+        var weekday=new Date(text_y,text_M-1,text_D,text_H,text_Mi,text_S).getDay();
+        var weekday_text=weekJudge(weekday);
+        var currentTime=new Date().getTime();
+        if(oldTime<currentTime)
+        {
+            var day = (currentTime - oldTime) / 1000 / 24 / 3600;
+            var days = Math.floor(day);
+            var time_hour = (day - days) * 24;
+            var time_hour_floor = Math.floor(time_hour);
+            var time_minute = (time_hour - time_hour_floor) * 60;
+            var time_minute_floor = Math.floor(time_minute)
+            var time_second = Math.floor((time_minute - time_minute_floor) * 60);
+            dayDifferent.innerHTML =weekday_text+'已经过去：'+ days + '天' + time_hour_floor + '时' + time_minute_floor + '分' + time_second + '秒';
+        }else{
+            var day = (oldTime-currentTime) / 1000 / 24 / 3600;
+            var days = Math.floor(day);
+            var time_hour = (day - days) * 24;
+            var time_hour_floor = Math.floor(time_hour);
+            var time_minute = (time_hour - time_hour_floor) * 60;
+            var time_minute_floor = Math.floor(time_minute)
+            var time_second = Math.floor((time_minute - time_minute_floor) * 60);
+            dayDifferent.innerHTML =weekday_text+'还有：'+ days + '天' + time_hour_floor + '时' + time_minute_floor + '分' + time_second + '秒';
+        }
+        setTimeout(daysChange,1000);
+    }
+    function weekJudge(week){
+ //获取星期是getDay 且0-6
+        switch(week){
+            case(0):
+                return '星期日';
+                break;
+            case(1):
+                return '星期一';
+                break;
+            case(2):
+                return '星期二';
+                break;
+            case(3):
+                return '星期三';
+                break;
+            case(4):
+                return '星期四';
+                break;
+            case(5):
+                return '星期五';
+                break;
+            case(6):
+                return '星期六';
+                break;
+        }
+
+    }
+</script>
+</body>
+</html>
