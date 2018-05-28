@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>send an e-mail to your lover</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<style>
+    li{
+        list-style-type: none;
+    }
+</style>
+<body>
+
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+<script>
+    // 邮箱后缀List参考
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    //用keyup keypress keydown oninput来监听事件 keydown keypress获取少一位 input 和keyup可以
+    // keyup输入上下左右、回车等继续获取内容 input不获取 所以采用keyup比较合适
+    var ipt=document.querySelector('#email-input');
+    var oUl=document.querySelector('#email-sug-wrapper');
+    ipt.oninput=function () {
+
+        /* 获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
+            控制email-sug-wrapper的显示/隐藏状态*/
+        var ipt_val=ipt.value;
+        var getint=getInput(ipt_val);
+        if (getint.keyCode==13){
+            oUl.onclick();
+        }
+        tooltip(getInput(ipt_val));
+        ulStatus(ipt_val);
+    }
+
+
+    function getInput(inputData) {
+        // 拿到input输入框的输入内容trim后返回
+        if (inputData){
+            return inputData.trim();
+        }
+    }
+
+    function tooltip(inputData) {
+        var concatData=inputData;
+        if(inputData) {
+
+            if (inputData.indexOf('@')!==-1){
+                concatData=inputData.slice(0,inputData.indexOf('@'));
+                var matchMail=inputData.slice(inputData.indexOf('@')+1);
+            }
+            $("ul").find("li").remove();
+            for (let i of postfixList) {  //差功能
+                if(matchMail){
+                        if (i.indexOf(matchMail)!== -1){
+                            let ali = document.createElement('li');
+                            let ali_text = document.createTextNode(concatData + '@' + i);
+                            ali.appendChild(ali_text);
+                            oUl.appendChild(ali);
+                        }
+                }else{
+                    let ali = document.createElement('li');
+                    let ali_text = document.createTextNode(concatData + '@' + i);
+                    ali.appendChild(ali_text);
+                    oUl.appendChild(ali);
+                }
+            }
+        }
+    }
+
+    function ulStatus(inputDate) {
+        if(!inputDate) {
+            hide();
+        }else{
+            show();
+        }
+    }
+    function hide() {
+        $("ul").find("li").remove();
+    }
+
+    function show() {
+        oUl.style.display='block';
+    }
+
+       oUl.onclick = function (ev) {
+           var ipt_val = ipt.value;
+           var ev = ev || window.event;
+           var tar = ev.target || ev.srcElement;
+           if (tar.nodeName.toLowerCase() == 'li') {
+              ipt.value=tar.outerText;
+              hide();
+           }
+       }
+
+
+
+</script>
+</body>
+</html>
