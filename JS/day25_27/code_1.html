@@ -9,26 +9,32 @@
     function Go() {
         console.log("Go");
     }
-
     function GoSteps(n) {
-
-        if ( n<=0){
+        if (!isNaN(n)) {
+            if (typeof n === 'boolean') {
+                if (n === true) {
+                    Go();
+                } else {
+                    console.log('0次')
+                }
+            } else if (n <= 0) {
             console.log('0次');
-        }
-/*         if(n===null){
-             Go();
-         }*/
-          if(n>0){
-           for(n;n>0;n--){
+        } else if (n == null) {
+            console.log('0次');
+        } else {
+            n = parseInt(n)
+            while (n--) {
                 Go();
-             }
-          }
-
-        // if (n==''){
-        //     console.log(Go()+'1次');
-        // }
+            }
+        }
+    }else{
+            if (n===undefined){
+                Go();
+            }else{
+                console.log('0次');
+            }
+        }
     }
-
     GoSteps(10); // Go 10次
     GoSteps(1); // Go 1次
     GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
