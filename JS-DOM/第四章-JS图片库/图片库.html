@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            font-family:"Helvetica","Arial",serif;
+            color:#333;
+            background-color: #ccc;
+            margin:1em 10%;
+        }
+        h1{
+            color:#333;
+            background-color: transparent;
+        }
+        a{
+            color:#333;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul{
+            padding: 0;
+
+        }
+        li{
+            float:left;
+            padding: 1em;
+            list-style: none;
+        }
+        img{
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<h1>Pictures</h1>
+<ul>
+    <li>
+        <a href="风景1.jpg" title="picture1" onclick="showPic(this);return false;">Photo-one</a>
+    </li>
+    <li>
+        <a href="风景2.jpg" title="picture2" onclick="showPic(this);return false;">Photo-two</a>
+    </li>
+    <li>
+        <a href="风景3.jpg" title="picture3" onclick="showPic(this);return false;">Photo-three</a>
+    </li>
+
+    <!--希望实现以下功能
+    （1）当点击某个链接时，希望能留在这个页面而不是转向另外一个窗口
+    （2）当点击某个链接时，希望能在这个网页上同事看到那张图片以及原来的图片清单
+    所以为了达到这个目标
+    （1）通过增加一个“占位符”图片的方法在这个主页上为图片预留一个对应的图片
+    （2）在点击某个连接时，拦截这个网页的默认行为
+    （3）在点击某个连接时，把占位符图片替换为那个连接对应的图片
+
+    -->
+<img id="placehoder" src="My%20image%20gallery.jpg" alt="my image gallery"/>
+
+
+</ul>
+<p id="description">Choose an image.</p>
+<script>
+    function showPic(whichpic) {
+        //把路径存入变量source
+        var source=whichpic.getAttribute("href");
+        //获取占位符图片
+        var placehoder=document.getElementById("placehoder");
+
+        //刷新placehoder属性
+        placehoder.setAttribute("src",source);
+        var text=whichpic.getAttribute("title");
+        var description=document.getElementById("description");
+        //nodeValue:用来得到（和设置）一个节点的值
+      // alert(description.nodeValue); 返回为NULL
+       // alert(description.childNodes[0].nodeValue); //返回为所需要的值
+
+        //node.childNodes[0]和firstChild等价
+        //node.childNodes[node.childNodes.length-1]和lastChild等级
+
+        //利用nodeValue属性来刷新这段描述
+        description.firstChild.nodeValue=text;
+        /*以上三个语句的意思是
+        * （1）当图片库某个图片链接呗点击时，这个链接的title属性值被提取并保存到text变量中
+        * （2）得到id为description的<p>元素，并把它保存在变量description中
+        * （3）把description对象的第一个子节点的nodeValue属性值设置为text值
+        * */
+
+    }
+
+    //查看body子元素个数
+    //childNode():可以获取任何一个元素的所有子元素
+    function countBodyChildren() {
+        var body_element = document.getElementsByTagName("body")[0];
+        alert(body_element.nodeType);
+    }
+
+
+    //nodeValue:用来得到（和设置）一个节点的值
+
+</script>
+</body>
+</html>
