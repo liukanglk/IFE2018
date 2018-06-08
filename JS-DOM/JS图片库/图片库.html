@@ -46,9 +46,11 @@
     </li>
     <li>
         <a href="风景2.jpg" title="picture2" onclick="showPic(this);return false;">Photo-two</a>
+
     </li>
     <li>
         <a href="风景3.jpg" title="picture3" onclick="showPic(this);return false;">Photo-three</a>
+
     </li>
 
     <!--希望实现以下功能
@@ -60,12 +62,37 @@
     （3）在点击某个连接时，把占位符图片替换为那个连接对应的图片
 
     -->
-<img id="placehoder" src="My%20image%20gallery.jpg" alt="my image gallery"/>
+<img id="placeholder" src="My%20image%20gallery.jpg" alt="my image gallery"/>
 
 
 </ul>
 <p id="description">Choose an image.</p>
 <script>
+    function showPic(whichPic) {
+        let source=whichPic.getAttribute('href');
+        let placeholder=document.querySelector('#placeholder');
+        placeholder.setAttribute('src',source);
+
+        let text=whichPic.getAttribute('title');
+        let description=document.querySelector('#description');
+        description.firstChild.nodeValue=text;
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /*
     function showPic(whichpic) {
         //把路径存入变量source
         var source=whichpic.getAttribute("href");
@@ -85,11 +112,11 @@
 
         //利用nodeValue属性来刷新这段描述
         description.firstChild.nodeValue=text;
-        /*以上三个语句的意思是
+        /!*以上三个语句的意思是
         * （1）当图片库某个图片链接呗点击时，这个链接的title属性值被提取并保存到text变量中
         * （2）得到id为description的<p>元素，并把它保存在变量description中
         * （3）把description对象的第一个子节点的nodeValue属性值设置为text值
-        * */
+        * *!/
 
     }
 
@@ -101,7 +128,7 @@
     }
 
 
-    //nodeValue:用来得到（和设置）一个节点的值
+    //nodeValue:用来得到（和设置）一个节点的值*/
 
 </script>
 </body>

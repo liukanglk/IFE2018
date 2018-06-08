@@ -1,10 +1,10 @@
 //加载多个onload
 function addLoadEvent(func) {
-    let oldonload = window.onload;
-    if (typeof window.onload !== 'function') {
-        window.onload = func;
+    let oldonload=window.onload;
+    if (typeof window.onload!=="function"){
+        window.onload=func;
     } else {
-        window.onload = function() {
+        window.onload=function () {
             oldonload();
             func();
         }
@@ -13,8 +13,8 @@ function addLoadEvent(func) {
 
 //在后面插入  与insertBefore功能相反
 function insertAfter(newElement,targetElement) {
-    let parent = targetElement.parentNode;
-    if (parent.lastChild === targetElement) {
+    let parent=targetElement.parentNode;
+    if (parent.lastChild===targetElement){
         parent.appendChild(newElement);
     } else {
         parent.insertBefore(newElement,targetElement.nextSibling);
@@ -32,6 +32,8 @@ function addClass(element,value) {
         element.className = newClassName;
     }
 }
+
+
     // 当前页文本高亮
 function highlightPage() {
     // if(!document.getElementsByTagName) return false;
