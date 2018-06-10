@@ -36,9 +36,6 @@ function addClass(element,value) {
 
     // 当前页文本高亮
 function highlightPage() {
-    // if(!document.getElementsByTagName) return false;
-    // if(!document.getElementById) return false;
-
     let headers = document.getElementsByTagName('header');
     if(headers.length===0) return false;
     let navs = headers[0].getElementsByTagName('nav');
@@ -55,6 +52,7 @@ function highlightPage() {
         }
     }
 }
+
 
 
 
@@ -103,6 +101,7 @@ function moveElement(elementID,final_x,final_y,interval) {
 }
 
 
+
 //图片滑动
 function prepareSlideshow() {
     if(!document.getElementsByTagName) return false;
@@ -146,20 +145,28 @@ function prepareSlideshow() {
         }
     }
 }
-
-
-
-function showSection(id) {
-    let sections = document.getElementsByTagName('section');
-    for(let i = 0; i < sections.length; ++i) {
-        if(sections[i].getAttribute('id') !==id) {
-            sections[i].style.display = 'none';
-        } else {
-            sections[i].style.display = 'block';
-
+//展示内容
+// function showSection(id) {
+//     let sections = document.getElementsByTagName('section');
+//     for(let i = 0; i < sections.length; ++i) {
+//         if(sections[i].getAttribute('id') !==id) {
+//             sections[i].style.display = 'none';
+//         } else {
+//             sections[i].style.display = 'block';
+//
+//         }
+//     }
+// }
+ function showSection(id) {
+        let section=document.querySelectorAll('section');
+        for (let i=0;i<section.length;i++) {
+            if (section[i].getAttribute('id')!==id){
+                section[i].style.display='none';
+            }else{
+                section[i].style.display='block';
+            }
         }
     }
-}
 
 function prepareInternalnav() { 
     if(!document.getElementsByTagName) return false;
@@ -398,7 +405,6 @@ function displayAjaxLoading(element) { // 显示加载动画
 function submitFormWithAjax(whichform, thetarget) {
     let request = new XMLHttpRequest();
     displayAjaxLoading(thetarget);
-
     // 对表单元素进行编码
     let dataParts = [];
     let element;
